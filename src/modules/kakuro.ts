@@ -56,6 +56,8 @@ export class Kakuro {
             this.getContract(coord, Direction.Horizontal),
             this.getContract(coord, Direction.Vertical)
         ] 
+        console.log('contracts', contracts);
+        
         const possibilities = contracts.map((c, index) => {
             let list: number[][] = []
             let out = false

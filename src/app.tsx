@@ -5,6 +5,7 @@ import Contracts from './components/Contracts';
 import { CellCoord, GridData, Resolution } from './modules/definitions';
 import { Kakuro } from './modules/kakuro';
 import { MapBuilder } from './modules/mapBuilder';
+import { List } from '@material-ui/core';
 
 const resolution: Resolution = [
   [9, 1, 4, 0],
@@ -36,11 +37,13 @@ const App = () => {
     }
   }
 
-  console.log('current coord', currentCell)
   const kakuro = new Kakuro(grid)
   if(currentCell){
     kakuro.getPossibilities(currentCell)
   }
+
+  let list: string[] = []
+  
 
   return <div className="app">
     {currentCell && 
@@ -49,6 +52,9 @@ const App = () => {
         cell={currentCell}
       />
     }
+    {list.map((e,k) => 
+      <div key={k}>e</div>
+    )}
     <Grid 
       data={grid}   
       onCellClick={onCellClick}
